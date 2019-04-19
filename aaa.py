@@ -4,30 +4,29 @@ from ADB import set_pause, t180, swtime, somedays
 from datetime import timedelta
 from ADB import shan_renqun
 
+set_pause(0.12,0.15)
+set_dglc(3, False, 'dp', 0, 0, 0, 2, 2, 'olay')
 
-set_dglc(2, False, 'dp', 0, 0, 1, 1, 1, '菁智')
+tAs = '2019-3-2'
+tIs = '2018-12-2'
+tHs = somedays('2019-4-1', 90)
+tpend = '2019-3-25'
 
-tAs = somedays('2019-3-10', 90)
-tIs = t180
-tHs = somedays('2019-3-10', 90)
-tpend = '2019-3-9'
-
-sousuoci = 'Nowords'
-
-fuzhu_of_depth(tAs, tIs, tHs, tpend, sousuoci)
-input('...')
-depths_of_aipl(tAs, tIs, tpend)
+#sousuoci = '精华,面霜,雅诗兰黛,兰蔻,娇韵诗'
+#sousuoci = 'now0irds'
 
 
-t2bef = '2019-3-10'
-t2end = '2019-3-9'
-input('...')
-#diaoyong_jindian(t2bef, t2end)
-#diaoyong_tracking(t2bef, t2end, tpend, 'bg')
-#diaoyong_tracking(t2bef, t2end, tpend, 'scjg')
-#diaoyong_tracking(t2bef, t2end, tpend, 'jg')
-#diaoyong_tracking(t2bef, t2end, tpend, 'gm')
-#diaoyong_tracking(t2bef, t2end, tpend, 'jd')
+#fuzhu_of_depth(tAs, tIs, tHs, tpend, sousuoci)
+#input('....')
+#depths_of_aipl(tAs, tIs, tpend)
 
 
+t2bef = '2019-3-26'
+t2end = '2019-4-17'
 
+diaoyong_jindian(t2bef, t2end)
+diaoyong_tracking(t2bef, t2end, tpend, 'bg')
+diaoyong_tracking(t2bef, t2end, tpend, 'sc')
+diaoyong_tracking(t2bef, t2end, tpend, 'jg')
+diaoyong_tracking(t2bef, t2end, tpend, 'ys')
+diaoyong_tracking(t2bef, t2end, tpend, 'jd')
