@@ -170,10 +170,10 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
 
 
 if __name__ == '__main__':
-    set_pause(0.2, 0.2)
+    set_pause(0.3, 0.3)
     aa = AutoDatabank(5, False, 'dp')
-    aa.mxdp_order = 3
-    aa.zszw_order = 3
+    aa.mxdp_order = 2
+    aa.zszw_order = 2
     aa.brand_name = '飞利浦'
 
     ER = '腔电'
@@ -182,22 +182,20 @@ if __name__ == '__main__':
     tIs = '2018-12-3'
     tPLs = t365
 
-    tpend = '2019-5-5'
+    tpend = '2019-5-1'
 
-    ts = '2019-5-1'
-    te = '2019-5-4'
+    ts = '2019-8-1'
+    te = '2019-8-4'
 
     qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')  # 基础
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-BG')  # 曝光
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JD')  # 进店
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-BG')  # 曝光
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JD')  # 进店
 
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LL')  # 浏览
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LM')  #类目
-    
-    
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SC')  # 收藏
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JG')  # 加购
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-YS')  # 预售
-    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-GM')  # 购买
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LL')  # 浏览
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LM')  #类目
+
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SC')  # 收藏
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JG')  # 加购
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-YS')  # 预售
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-GM')  # 购买
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SCJG')  # 收藏加够
-    
