@@ -1,7 +1,7 @@
 from ADB import aalc, set_pause, swtime, timedelta
 from ADB.actionfunc import datetime
 
-set_pause(0.101, 0.101)
+set_pause(0.2, 0.2)
 dt = datetime.now() - timedelta(20)
 
 year, month = dt.year, dt.month

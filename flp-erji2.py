@@ -170,7 +170,8 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
 
 
 if __name__ == '__main__':
-    set_pause(0.3, 0.3)
+
+    set_pause(0.2, 0.3)
     aa = AutoDatabank(5, False, 'dp')
     aa.mxdp_order = 2
     aa.zszw_order = 2
@@ -182,7 +183,7 @@ if __name__ == '__main__':
     tIs = '2018-12-3'
     tPLs = t365
 
-    tpend = '2019-5-1'
+    tpend = '2019-5-23'
 
     ts = '2019-8-1'
     te = '2019-8-4'
@@ -199,3 +200,9 @@ if __name__ == '__main__':
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-YS')  # 预售
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-GM')  # 购买
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SCJG')  # 收藏加够
+
+    ER = '剃须'
+    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')
+
+    ER = '塑身'
+    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')

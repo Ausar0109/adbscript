@@ -6,21 +6,21 @@ from ADB import shan_renqun
 
 
 set_pause(0.3, 0.3)
-set_dglc(2, False, 'dp', 0, 0, 1, 1, 1, '雅培')
+set_dglc(3, False, 'dp', 0, 0, 2, 2, 3, '雅培')
 
 tAs = '2019-3-2'
-tIs = '2019-3-2'
-tHs = somedays('2019-5-6', 90)
+tIs = '2018-12-2'
+tHs = somedays('2019-5-24', 90)
 
-tpend = '2019-5-5'
+tpend = '2019-5-23'
 
 
 sousuoci = '雅培'
 
 
-fuzhu_of_depth(tAs, tIs, tHs, tpend, sousuoci)
-input('....')
-depths_of_aipl(tAs, tIs, tpend)
+#fuzhu_of_depth(tAs, tIs, tHs, tpend, sousuoci)
+#input('....')
+depths_of_aipl(tAs, tIs, tpend,tPLs='2018-5-31')
 
 
 
