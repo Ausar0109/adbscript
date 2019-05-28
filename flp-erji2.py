@@ -1,5 +1,5 @@
 from ADB import AutoDatabank, t180, t365, somedays, swtime, namesstt
-from ADB import two_check_time
+from ADB import two_check_time, checktime
 from datetime import timedelta
 from ADB import set_pause
 aa = AutoDatabank()
@@ -183,7 +183,7 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No', other_name=''):
         aa.sp('%s-新增-非%s类%s' % (peoname, ER, typename))
 
 
-def qlltracking(tAs, tIs, tPLs, tpend, ts, te, other_name):
+def qlltracking(tAs, tIs, tPLs, tpend, ts, te, typee, other_name):
     '''
     tPLs 没有影响，用于习惯补位
     tAs,tIs,用于修正活动期新增人群的逻辑，对主方法没有影响
@@ -254,14 +254,29 @@ def qlltracking(tAs, tIs, tPLs, tpend, ts, te, other_name):
         aa.sp(xyname)
 
     # 新增AIPL
+    aa.cp()
+    aa.qll_erjileimu(1234, ER, ts, te, 3)
+    aa.qll(234, tIs, tpend, 1)
+    aa.zdy('【勿删】12210524IPL', 3)
+    aa.zdy('【勿删】12031220IPL', 3)
+    aa.qll(1, tAs, tpend, 3)
+    aa.qll(1234, ts, te, 3)
+    aa.sp('%s-新增-%s类%s' % (peoname, ER, typename))
+
+    aa.cp()
+    aa.qll_erjileimu(1234, ER, ts, te, 3)
+    aa.qll(234, tIs, tpend, 3)
+    aa.zdy('【勿删】12210524IPL', 3)
+    aa.zdy('【勿删】12031220IPL', 3)
+    aa.qll(1, tAs, tpend, 3)
+    aa.qll(1234, ts, te, 3)
+    aa.sp('%s-新增-非%s类%s' % (peoname, ER, typename))
 
     cp()
     aa.qll_erjileimu(1234, ER, ts, te, 3)
     aa.qll(234, tIs, tpend, 1)
-
     aa.zdy('【勿删】12210524IPL', 3)
     aa.zdy('【勿删】12031220IPL', 3)
-
     aa.qll(1, tAs, tpend, 3)
     aa.qll(1234, ts, te, 3)
     aa.sp('%s-新增-%s类%s' % (peoname, ER, typename2))
@@ -269,23 +284,22 @@ def qlltracking(tAs, tIs, tPLs, tpend, ts, te, other_name):
     cp()
     aa.qll_erjileimu(1234, ER, ts, te, 3)
     aa.qll(234, tIs, tpend, 3)
-
     aa.zdy('【勿删】12210524IPL', 3)
     aa.zdy('【勿删】12031220IPL', 3)
-
     aa.qll(1, tAs, tpend, 3)
     aa.qll(1234, ts, te, 3)
     aa.sp('%s-新增-非%s类%s' % (peoname, ER, typename2))
 
 
 if __name__ == '__main__':
-    set_pause(0.3, 0.3)
+    set_pause(0.31, 0.31)
 
     aa = AutoDatabank(5, False, 'dp')
+    aa.zhanghao = '1'
     aa.mxdp_order = 5
     aa.zszw_order = 7
     aa.brand_name = '飞利浦'
-      
+
     tAs = '2019-4-2'
     tIs = '2018-12-3' if checktime('2018-12-3') else t180
     tPLs = t365
@@ -293,17 +307,50 @@ if __name__ == '__main__':
 
     ts = '2019-5-25'
     te = '2019-5-27'  # 代表活动期间时间
-    
+
     ER, er = '腔电', 'O'
-    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No', other_name=er)
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No', other_name=er)
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LM')  # 类目
-
-    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
-    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
-    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
-    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
-    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-SCJG', other_name=er)  # 收藏加够
-
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-BG')  # 曝光
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SC')  # 收藏
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JG')  # 加购
+
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,
+    #            '-SCJG', other_name=er)  # 收藏加够
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
+
+    ER, er = '剃须', 'M'
+    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No', other_name=er)
+
+    ER, er = '塑身', 'I'
+    #qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No', other_name=er)
+
+    ER, er = '腔电', 'O' 
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,
+                '-SCJG', other_name=er)  # 收藏加够
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
+
+    ER, er = '剃须', 'M'
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,
+                '-SCJG', other_name=er)  # 收藏加够
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
+    
+    ER, er = '塑身', 'I'
+    
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,
+    #            '-SCJG', other_name=er)  # 收藏加够
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
+    #qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
+
+    
