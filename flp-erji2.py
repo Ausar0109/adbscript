@@ -5,14 +5,14 @@ from ADB import set_pause
 aa = AutoDatabank()
 
 
-def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
+def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No', other_name=''):
     typename = ''
 
     def cp():
         nonlocal typename
         aa.cp()
         if typee == 'No':
-            pass
+            typename = '-基础'
 
         elif typee == '-LM':
             typename = '-LM'
@@ -47,16 +47,18 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
             typename = typee
             aa.flpdp(5, idd, ts, te)
 
+        typename = typename + other_name
+
     peoname = namesstt(tpend)
 
     # AAAAAA
     cp()
-    aa.qll_erjileimu(234, ER, t180, tpend, 3)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
     aa.qll_erjileimu(1, ER, tAs, tpend, 3)
     aa.sp('%s-%s类-A人群%s' % (peoname, ER, typename))
 
     cp()
-    aa.qll_erjileimu(234, ER, t180, tpend, 3)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
     aa.qll_erjileimu(1, ER, tAs, tpend, 3)
     aa.zszw([1, 99], tAs, tpend, 1, action=2)
     aa.zszw([1, 99], tAs, tpend, 2, action=1)
@@ -75,19 +77,19 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
     aa.dp(12345, tAs, tpend, 3)
     aa.tm(3, tAs, tpend, 3)
     aa.tm(1, tAs, tpend, 3)
-    aa.qll_erjileimu(234, ER, t180, tpend, 3)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
     aa.qll_erjileimu(1, ER, tAs, tpend, 3)
     aa.sp('%s-%s类-非旗A%s' % (peoname, ER, typename))
 
     # IIIIII
     cp()
-    aa.qll_erjileimu(34, ER, t180, tpend, 3)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 3)
     aa.qll_erjileimu(2, ER, tIs, tpend, 3)
     aa.sp('%s-%s类-I人群%s' % (peoname, ER, typename))
 
     cp()
     aa.flpdp(23, False, tIs, tpend, 3, erjileimu=ER)
-    aa.qll_erjileimu(34, ER, t180, tpend, 1)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 1)
     aa.qll_erjileimu(2, ER, tIs, tpend, 3)
     aa.dp(12345, tIs, tpend, 1)
     aa.tm(3, tIs, tpend, 2)
@@ -96,7 +98,7 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
 
     cp()
     aa.flpdp(23, False, tIs, tpend, 3, erjileimu=ER)
-    aa.qll_erjileimu(34, ER, t180, tpend, 3)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 3)
     aa.qll_erjileimu(2, ER, tIs, tpend, 3)
     aa.dp(12345, tIs, tpend, 1)
     aa.tm(3, tIs, tpend, 2)
@@ -107,49 +109,57 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
     aa.dp(12345, tIs, tpend, 3)
     aa.tm(3, tIs, tpend, 3)
     aa.tm(1, tIs, tpend, 3)
-    aa.qll_erjileimu(34, ER, t180, tpend, 3)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 3)
     aa.qll_erjileimu(2, ER, tIs, tpend, 3)
     aa.sp('%s-%s类-非旗I%s' % (peoname, ER, typename))
 
     # PLLLL
     cp()
-    aa.qll_erjileimu(34, ER, t180, tpend, 3)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 3)
     aa.sp('%s-%s类-P人群%s' % (peoname, ER, typename))
 
     cp()
     aa.flpdp(5, False, tPLs, tpend, 3, erjileimu=ER)
-    aa.qll_erjileimu(34, ER, t180, tpend, 1)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 1)
     aa.sp('%s-%s类-旗舰P%s' % (peoname, ER, typename))
 
     cp()
     aa.flpdp(5, False, tPLs, tpend, 3, erjileimu=ER)
-    aa.qll_erjileimu(34, ER, t180, tpend, 3)
+    aa.qll_erjileimu(34, ER, tIs, tpend, 3)
     aa.sp('%s-%s类-非旗P%s' % (peoname, ER, typename))
 
     # 非二级类目AIPL
     cp()
-    aa.qll_erjileimu(1234, ER, t180, tpend, 3)
-    aa.qll(1234, t180, tpend, 3)
+    aa.qll_erjileimu(1, ER, tAs, tpend, 3)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
+    aa.qll(1, tAs, tpend, 3)
+    aa.qll(234, tAs, tpend, 2)
     aa.sp('%s-非%s类-全部%s' % (peoname, ER, typename))
 
     cp()
-    aa.qll(234, t180, tpend, 3)
+    aa.qll(234, tIs, tpend, 2)
     aa.qll(1, tAs, tpend, 3)
-    aa.qll_erjileimu(1234, ER, t180, tpend, 1)
-    aa.qll(1234, t180, tpend, 3)
+    aa.qll_erjileimu(1, ER, tAs, tpend, 1)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
+    aa.qll(234, tIs, tpend, 3)
+    aa.qll(1, tAs, tpend, 2)
     aa.sp('%s-非%s类-之A%s' % (peoname, ER, typename))
 
     cp()
-    aa.qll(34, t180, tpend, 3)
+    aa.qll(34, tIs, tpend, 1)
     aa.qll(2, tIs, tpend, 3)
-    aa.qll_erjileimu(1234, ER, t180, tpend, 1)
-    aa.qll(1234, t180, tpend, 3)
+    aa.qll_erjileimu(1, ER, tAs, tpend, 1)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
+    aa.qll(234, tIs, tpend, 3)
+    aa.qll(1, tAs, tpend, 2)
     aa.sp('%s-非%s类-之I%s' % (peoname, ER, typename))
 
     cp()
-    aa.qll(34, t180, tpend, 3)
-    aa.qll_erjileimu(1234, ER, t180, tpend, 1)
-    aa.qll(1234, t180, tpend, 3)
+    aa.qll(34, tIs, tpend, 1)
+    aa.qll_erjileimu(1, ER, tAs, tpend, 1)
+    aa.qll_erjileimu(234, ER, tIs, tpend, 3)
+    aa.qll(234, tIs, tpend, 3)
+    aa.qll(1, tAs, tpend, 2)
     aa.sp('%s-非%s类-之P%s' % (peoname, ER, typename))
 
     # 新增AIPL
@@ -157,6 +167,8 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
         cp()
         aa.qll_erjileimu(1234, ER, ts, te, 3)
         aa.qll(234, tIs, tpend, 1)
+        aa.zdy('【勿删】12210524IPL', 3)
+        aa.zdy('【勿删】12031220IPL', 3)
         aa.qll(1, tAs, tpend, 3)
         aa.qll(1234, ts, te, 3)
         aa.sp('%s-新增-%s类%s' % (peoname, ER, typename))
@@ -164,45 +176,134 @@ def qllmain(tAs, tIs, tPLs, tpend, ts, te, typee='No'):
         cp()
         aa.qll_erjileimu(1234, ER, ts, te, 3)
         aa.qll(234, tIs, tpend, 3)
+        aa.zdy('【勿删】12210524IPL', 3)
+        aa.zdy('【勿删】12031220IPL', 3)
         aa.qll(1, tAs, tpend, 3)
         aa.qll(1234, ts, te, 3)
         aa.sp('%s-新增-非%s类%s' % (peoname, ER, typename))
 
 
+def qlltracking(tAs, tIs, tPLs, tpend, ts, te, other_name):
+    '''
+    tPLs 没有影响，用于习惯补位
+    tAs,tIs,用于修正活动期新增人群的逻辑，对主方法没有影响
+
+    ER是全局变量,函数外的参数会传入进来
+    typename 固定为 typee + other_name 的组合
+    typee为 ‘No’ 引发 typename = '-基础' ,此为锁死写定
+    '''
+    assert two_check_time(ts, te)  # 非法时间直接报错
+    peoname = namesstt(tpend)
+    typename = '-基础'
+    typename += other_name
+
+    peoplelist = ['%s-%s类-A人群%s' % (peoname, ER, typename),
+                  '%s-%s类-旗舰A%s' % (peoname, ER, typename),
+                  '%s-%s类-非旗A%s' % (peoname, ER, typename),
+                  '%s-%s类-I人群%s' % (peoname, ER, typename),
+                  '%s-%s类-深度I%s' % (peoname, ER, typename),
+                  '%s-%s类-浅度I%s' % (peoname, ER, typename),
+                  '%s-%s类-非旗I%s' % (peoname, ER, typename),
+                  '%s-%s类-P人群%s' % (peoname, ER, typename),
+                  '%s-%s类-旗舰P%s' % (peoname, ER, typename),
+                  '%s-%s类-非旗P%s' % (peoname, ER, typename),
+                  '%s-非%s类-全部%s' % (peoname, ER, typename),
+                  '%s-非%s类-之A%s' % (peoname, ER, typename),
+                  '%s-非%s类-之I%s' % (peoname, ER, typename),
+                  '%s-非%s类-之P%s' % (peoname, ER, typename)]
+
+    typename2 = ''
+
+    def cp():
+        nonlocal typename2
+        aa.cp()
+
+        if typee == '-JD':  # 进店
+            typename2 = '-JD'
+            aa.tm(1, ts, te, 3)
+            aa.tm(3, ts, te, 3)
+            aa.dp(12345, ts, te, 3)
+        elif typee == '-LL':  # 浏览
+            typename2 = '-LL'
+            aa.flpdp(1, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-SCJG':  # 收藏加够
+            typename2 = '-收加'
+            aa.flpdp(23, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-SC':
+            typename2 = '-收藏'
+            aa.flpdp(2, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-JG':
+            typename2 = '-加购'
+            aa.flpdp(3, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-YS':  # 预售
+            typename2 = '-预售'
+            aa.flpdp(4, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-GM':  # 购买
+            typename2 = '-购买'
+            aa.flpdp(5, False, ts, te, 3, erjileimu=ER)
+        elif typee == '-BG':
+            typename2 = '-BG'
+            aa.zszw([1, 99], ts, te, 3)
+        typename2 += other_name
+
+    # 主方法loop ★★★
+    for xy in peoplelist:
+        cp()
+        aa.zdy(xy, 3)
+        xyname = '-'.join(xy.split('-')[:-1]) + typename2
+        aa.sp(xyname)
+
+    # 新增AIPL
+
+    cp()
+    aa.qll_erjileimu(1234, ER, ts, te, 3)
+    aa.qll(234, tIs, tpend, 1)
+
+    aa.zdy('【勿删】12210524IPL', 3)
+    aa.zdy('【勿删】12031220IPL', 3)
+
+    aa.qll(1, tAs, tpend, 3)
+    aa.qll(1234, ts, te, 3)
+    aa.sp('%s-新增-%s类%s' % (peoname, ER, typename2))
+
+    cp()
+    aa.qll_erjileimu(1234, ER, ts, te, 3)
+    aa.qll(234, tIs, tpend, 3)
+
+    aa.zdy('【勿删】12210524IPL', 3)
+    aa.zdy('【勿删】12031220IPL', 3)
+
+    aa.qll(1, tAs, tpend, 3)
+    aa.qll(1234, ts, te, 3)
+    aa.sp('%s-新增-非%s类%s' % (peoname, ER, typename2))
+
+
 if __name__ == '__main__':
+    set_pause(0.3, 0.3)
 
-    set_pause(0.2, 0.3)
     aa = AutoDatabank(5, False, 'dp')
-    aa.mxdp_order = 2
-    aa.zszw_order = 2
+    aa.mxdp_order = 5
+    aa.zszw_order = 7
     aa.brand_name = '飞利浦'
-
-    ER = '腔电'
-
+      
     tAs = '2019-4-2'
-    tIs = '2018-12-3'
+    tIs = '2018-12-3' if checktime('2018-12-3') else t180
     tPLs = t365
+    tpend = '2019-5-24'
 
-    tpend = '2019-5-23'
+    ts = '2019-5-25'
+    te = '2019-5-27'  # 代表活动期间时间
+    
+    ER, er = '腔电', 'O'
+    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No', other_name=er)
+    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LM')  # 类目
 
-    ts = '2019-8-1'
-    te = '2019-8-4'
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-JD', other_name=er)  # 进店
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-LL', other_name=er)  # 浏览
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-YS', other_name=er)  # 预售
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-GM', other_name=er)  # 购买
+    qlltracking(tAs, tIs, tPLs, tpend, ts, te,  '-SCJG', other_name=er)  # 收藏加够
 
-    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')  # 基础
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-BG')  # 曝光
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JD')  # 进店
-
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LL')  # 浏览
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-LM')  #类目
-
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SC')  # 收藏
     # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-JG')  # 加购
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-YS')  # 预售
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-GM')  # 购买
-    # qllmain(tAs, tIs, tPLs, tpend, ts, te,  '-SCJG')  # 收藏加够
-
-    ER = '剃须'
-    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')
-
-    ER = '塑身'
-    qllmain(tAs, tIs, tPLs, tpend, ts, te,  'No')
